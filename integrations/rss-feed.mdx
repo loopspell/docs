@@ -1,0 +1,56 @@
+---
+title: "Subscribe to Your Blog with RSS and Atom Feeds"
+sidebarTitle: "RSS Feed"
+description: "Loopspell automatically generates an RSS/Atom feed at /feed.xml using the jekyll-feed gem. Enable the RSS footer icon in _config.yml."
+---
+
+Loopspell automatically generates a standards-compliant Atom feed at `/feed.xml` powered by the `jekyll-feed` gem. Readers can subscribe using any RSS reader — no extra configuration is needed to generate the feed.
+
+## Your Feed URL
+
+Your feed is available at the following URL as soon as your blog is live:
+
+```
+https://yourusername.github.io/feed.xml
+```
+
+If you have set up a custom domain, use that instead:
+
+```
+https://yourblog.com/feed.xml
+```
+
+Share this URL with readers so they can subscribe directly in their RSS reader of choice.
+
+## Adding the RSS Footer Icon
+
+To display an RSS icon in your blog's footer that links to your feed, add any value to the `rss` key under `footer-links` in `_config.yml`:
+
+```yaml _config.yml
+footer-links:
+  rss: true
+```
+
+Save the file and wait for the rebuild to complete. The RSS icon appears in your footer and links readers directly to your feed URL.
+
+## What the Feed Contains
+
+The Atom feed automatically includes the following for each post:
+
+- **Post title** and **publication date**
+- **Post excerpt or full content**, depending on your theme settings
+- **Permalink** back to the original post on your blog
+
+RSS readers such as [Feedly](https://feedly.com), [NetNewsWire](https://netnewswire.com), and [Reeder](https://reederapp.com) can subscribe to your feed URL and sync new posts automatically as you publish them.
+
+## Submitting to Feed Directories
+
+Increase your blog's reach by promoting your feed in a few places:
+
+- **Submit to Feedly**: Visit [feedly.com](https://feedly.com) and add your feed URL so readers can find and follow your blog through their Feedly account.
+- **Autodiscovery**: Loopspell already includes the feed autodiscovery `<link>` tag in every page's `<head>`, so RSS readers that support autodiscovery detect your feed automatically when a reader visits your blog.
+- **Add it to your About page**: Mention your feed URL on your blog's About page so visitors know they can subscribe and stay up to date.
+
+<Note>
+  Your feed is regenerated on every GitHub Pages build. New posts appear in subscribers' RSS readers within minutes of you publishing — as soon as the GitHub Pages build finishes and the updated `feed.xml` is live.
+</Note>

@@ -1,0 +1,55 @@
+---
+title: "Set Your Blog Avatar and Personal Branding"
+sidebarTitle: "Avatar & Branding"
+description: "Personalize your Loopspell blog with a custom avatar image. Use your GitHub profile picture or any publicly accessible image URL."
+---
+
+Your avatar appears in the top-left corner of every page on your Loopspell blog and serves as the primary visual identity visitors associate with your writing. It can be any publicly accessible image URL — most people use their GitHub profile picture, which is already hosted, always up to date, and trivial to find.
+
+## Setting Your Avatar
+
+Open `_config.yml` in the GitHub browser editor and set the `avatar` field to your image URL:
+
+```yaml _config.yml
+avatar: https://avatars.githubusercontent.com/u/YOUR_USER_ID
+```
+
+Replace `YOUR_USER_ID` with your numeric GitHub user ID. To find your GitHub avatar URL:
+
+1. Go to your GitHub profile page (e.g. `github.com/yourusername`).
+2. Right-click your profile photo.
+3. Select **Copy image address** (Chrome/Edge) or **Copy Image Location** (Firefox).
+4. Paste that URL as the value of `avatar` in `_config.yml`.
+
+Commit the change and GitHub Pages will rebuild your site with the new avatar automatically.
+
+## Using a Custom Image
+
+Any publicly accessible image URL works as your avatar — you're not limited to GitHub. Good options include a Gravatar URL, a photo hosted elsewhere on the web, or an image you've uploaded to your own repository's `images/` folder.
+
+To use an image stored in your repository, reference it through your site's full URL:
+
+```yaml _config.yml
+avatar: https://yourusername.github.io/images/profile.jpg
+```
+
+Upload the image to an `images/` folder at the root of your repository first, then commit `_config.yml` with the URL above. Both changes can go in separate commits — GitHub Pages will reflect the final state after each build.
+
+## Image Recommendations
+
+Keep these tips in mind to make sure your avatar looks sharp across every device and screen:
+
+- **Use a square image.** The avatar is displayed in a 70×70 pixel square with rounded corners. Rectangular images are cropped, so a square crop avoids unexpected results.
+- **Use HTTPS URLs.** Modern browsers block mixed-content requests and may silently refuse to load an avatar served over plain HTTP. Always use a URL that starts with `https://`.
+- **Aim for at least 140×140 pixels.** High-density (retina) displays render images at double resolution. A 140×140 px source image keeps your avatar crisp on MacBooks, iPhones, and similar devices.
+- **Keep the file size reasonable.** Your avatar loads on every page. A well-compressed JPEG or PNG under 100 KB loads fast even on mobile connections.
+
+## Site Name Styling
+
+The `name` field in `_config.yml` renders as the large header text at the top of your blog:
+
+```yaml _config.yml
+name: Jane Doe
+```
+
+The value is plain text — no Markdown or HTML is interpreted here. It appears both as the visible heading in your blog's header and inside the `<title>` tag of every page, which is what browsers display in tabs and what search engines index as your site's title. Keep it concise and consistent with how you want to be known as an author.

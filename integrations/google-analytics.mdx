@@ -1,0 +1,52 @@
+---
+title: "Track Your Blog Audience with Google Analytics"
+sidebarTitle: "Google Analytics"
+description: "Add Google Analytics tracking to your Loopspell blog by adding your tracking ID to _config.yml. No code changes required."
+---
+
+Loopspell includes built-in support for Google Analytics. Once you add your tracking ID to `_config.yml`, every page on your blog automatically sends analytics data — no template editing required.
+
+## Getting Your Tracking ID
+
+<Steps>
+  <Step title="Sign in to Google Analytics">
+    Go to [analytics.google.com](https://analytics.google.com) and sign in with your Google account.
+  </Step>
+  <Step title="Create a new property">
+    Create a new property for your blog URL. Follow the setup prompts and enter your blog's address when asked for a website URL.
+  </Step>
+  <Step title="Find your ID">
+    Locate your tracking ID once the property is created:
+    - **GA4 format** (Measurement ID): `G-XXXXXXXXXX`
+    - **Universal Analytics format** (Tracking ID): `UA-XXXXXXXX-X`
+
+    Copy the ID — you'll paste it into `_config.yml` in the next step.
+  </Step>
+</Steps>
+
+## Enabling Tracking
+
+Open your `_config.yml` file and add your tracking ID to the `google_analytics` key:
+
+```yaml _config.yml
+google_analytics: UA-000000-2
+```
+
+Replace `UA-000000-2` with your actual tracking ID. Save the file to trigger a GitHub Pages rebuild. Analytics begins tracking visitor activity immediately after the site finishes rebuilding.
+
+## Verifying the Setup
+
+Confirm that tracking is working correctly after the rebuild:
+
+1. Open your blog in an **incognito or private browsing window** to generate a fresh session that Google Analytics can detect.
+2. Browse one or two pages on your blog.
+3. Wait about one minute, then open Google Analytics and navigate to **Reports → Realtime**.
+4. Confirm that your visit appears in the active users count.
+
+If no data appears after a few minutes, double-check that the tracking ID in `_config.yml` matches the one shown in your Google Analytics property settings.
+
+## Privacy Considerations
+
+<Note>
+  Analytics tracking collects data about your readers' devices, locations, and browsing behaviour. Disclose this in a privacy policy or cookie notice on your blog, as required by GDPR, CCPA, and similar data-protection regulations. Many jurisdictions require you to obtain reader consent before activating tracking.
+</Note>

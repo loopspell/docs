@@ -1,0 +1,216 @@
+---
+title: "Markdown Syntax Guide for Loopspell Bloggers"
+sidebarTitle: "Markdown Guide"
+description: "A practical reference for GitHub Flavored Markdown in Loopspell posts — headings, lists, links, images, code blocks, and more."
+---
+
+Loopspell uses **GitHub Flavored Markdown (GFM)** processed by the Kramdown parser. That means you get everything in standard Markdown — headings, lists, links, images, and emphasis — plus GFM extras like fenced code blocks with syntax highlighting, pipe tables, and task lists. Write your post content below the front matter block using any of the syntax below.
+
+<AccordionGroup>
+  <Accordion title="Headings">
+    Use `#` symbols to create headings. The number of `#` symbols sets the heading level.
+
+    ```markdown
+    # Heading 1
+    ## Heading 2
+    ### Heading 3
+    #### Heading 4
+    ```
+
+    Use **H1** (`#`) for the main page or section title. Use **H2** (`##`) and below for subsections within your post. Note that Jekyll's post template already renders your front matter `title` as an H1, so starting your body content at H2 keeps the heading hierarchy clean.
+  </Accordion>
+
+  <Accordion title="Paragraphs & Line Breaks">
+    Separate paragraphs with a **blank line** between them.
+
+    ```markdown
+    This is the first paragraph.
+
+    This is the second paragraph.
+    ```
+
+    To insert a **hard line break** within a paragraph (like a line in a poem or address), add **two spaces** at the end of the line before pressing Return.
+
+    ```markdown
+    Line one  
+    Line two  
+    Line three
+    ```
+  </Accordion>
+
+  <Accordion title="Emphasis">
+    Use asterisks or underscores to apply inline emphasis.
+
+    ```markdown
+    **bold text**
+    *italic text*
+    ~~strikethrough~~
+    ```
+
+    Renders as: **bold text**, *italic text*, ~~strikethrough~~.
+
+    You can combine bold and italic: `***bold and italic***` → ***bold and italic***.
+  </Accordion>
+
+  <Accordion title="Lists">
+    **Unordered lists** use a `-` or `*` prefix:
+
+    ```markdown
+    - Apples
+    - Bananas
+    - Cherries
+    ```
+
+    **Ordered lists** use a number followed by a period:
+
+    ```markdown
+    1. First item
+    2. Second item
+    3. Third item
+    ```
+
+    Indent nested items by two or four spaces to create a sub-list:
+
+    ```markdown
+    - Main item
+      - Sub-item
+      - Another sub-item
+    ```
+  </Accordion>
+
+  <Accordion title="Links">
+    **Inline links** use the `[text](url)` syntax:
+
+    ```markdown
+    [Visit Loopspell](https://loopspell.com)
+    ```
+
+    **Reference-style links** separate the URL from the text, which is useful when the same URL appears multiple times or when you want cleaner prose:
+
+    ```markdown
+    Check out [Loopspell][ls] and the [Jekyll docs][jk].
+
+    [ls]: https://loopspell.com
+    [jk]: https://jekyllrb.com/docs/
+    ```
+
+    Define the references anywhere in the file — they won't appear in the rendered output.
+  </Accordion>
+
+  <Accordion title="Images">
+    Embed an image with `![alt text](url)`:
+
+    ```markdown
+    ![A sunset over the ocean](https://example.com/sunset.jpg)
+    ```
+
+    You can also host images directly in your repository by uploading them to the `images/` folder and referencing them with a relative path:
+
+    ```markdown
+    ![My chart](/images/chart.png)
+    ```
+
+    Always write descriptive alt text — it improves accessibility and appears when an image fails to load.
+  </Accordion>
+
+  <Accordion title="Code">
+    **Inline code** wraps a word or short phrase in single backticks:
+
+    ```markdown
+    Use the `git status` command to check your working tree.
+    ```
+
+    **Fenced code blocks** use triple backticks and support syntax highlighting with an optional language tag (see the [Syntax Highlighting](#syntax-highlighting) section below):
+
+    ````markdown
+    ```javascript
+    const greet = name => `Hello, ${name}!`;
+    ```
+    ````
+  </Accordion>
+
+  <Accordion title="Blockquotes">
+    Prefix a line with `>` to create a blockquote:
+
+    ```markdown
+    > The best time to plant a tree was 20 years ago.
+    > The second best time is now.
+    ```
+
+    Nest blockquotes by doubling the `>` prefix:
+
+    ```markdown
+    > Outer quote
+    >> Inner quote
+    ```
+  </Accordion>
+
+  <Accordion title="Horizontal Rules">
+    Insert a thematic break (a horizontal line) using three or more hyphens or asterisks on their own line:
+
+    ```markdown
+    ---
+    ```
+
+    or
+
+    ```markdown
+    ***
+    ```
+
+    Leave a blank line above and below the rule to avoid it being interpreted as a heading underline.
+  </Accordion>
+
+  <Accordion title="Tables">
+    GFM supports pipe-style tables. Separate the header row from the body rows with a line of dashes:
+
+    ```markdown
+    | Name    | Role      | Joined |
+    | ------- | --------- | ------ |
+    | Alice   | Editor    | 2022   |
+    | Bob     | Developer | 2023   |
+    ```
+
+    Control column alignment by adding colons to the separator row:
+
+    ```markdown
+    | Left     | Center   | Right  |
+    | :------- | :------: | -----: |
+    | text     | text     | text   |
+    ```
+
+    - `:---` — left-aligned (default)
+    - `:---:` — centered
+    - `---:` — right-aligned
+  </Accordion>
+
+  <Accordion title="Task Lists">
+    Create interactive checkboxes with `- [ ]` (unchecked) and `- [x]` (checked):
+
+    ```markdown
+    - [x] Write the first draft
+    - [x] Add images
+    - [ ] Proofread
+    - [ ] Publish
+    ```
+
+    Task lists render as visual checkboxes on GitHub.com and in your published post.
+  </Accordion>
+</AccordionGroup>
+
+## Syntax Highlighting
+
+Wrap any code block in triple backticks and add a language tag immediately after the opening fence. Loopspell's Jekyll setup uses the **Rouge** highlighter to apply colour to your code automatically.
+
+````markdown
+```python
+def hello():
+    print("Hello, world!")
+```
+````
+
+The block above renders with full Python syntax colouring in your published post. Rouge supports a wide range of languages, including:
+
+`python` · `javascript` · `ruby` · `bash` · `yaml` · `json` · `html` · `css` · `typescript` · `go` · `rust` · `java` · `c` · `cpp` · `markdown` · and many more.
+
+If you leave the language tag blank, the block is rendered as plain monospace text without colouring.

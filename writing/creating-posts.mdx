@@ -1,0 +1,102 @@
+---
+title: "Create and Manage Blog Posts in Loopspell"
+sidebarTitle: "Creating Posts"
+description: "Learn how to create, edit, and delete blog posts in Loopspell using GitHub.com's browser editor — no local tools required."
+---
+
+All blog posts in Loopspell live in the `/_posts/` directory of your GitHub repository as Markdown files. Every file you add, edit, or delete in that folder is reflected on your live blog within seconds — no build commands, no deploys, no terminal required.
+
+## The Post Filename Format
+
+Every post filename must follow this exact pattern:
+
+```
+YYYY-MM-DD-post-title.md
+```
+
+The date prefix tells Jekyll when the post was published, and the slug after the date becomes part of the post's URL. Here are a few valid examples:
+
+```
+2024-01-15-hello-world.md
+2024-03-22-my-thoughts-on-coffee.md
+2024-12-01-year-in-review.md
+```
+
+<Warning>
+  Posts with a future date in their filename will **not** appear on your live blog until that date arrives. GitHub Pages rebuilds your site daily, so the post will go live automatically — but if you want a post visible immediately, make sure the date is today or in the past.
+</Warning>
+
+## Required Front Matter
+
+Every post must start with a front matter block — a short YAML header fenced by triple dashes. At minimum, include the following:
+
+```markdown
+---
+layout: post
+title: Your Post Title Here
+---
+```
+
+- **`layout: post`** tells Jekyll to wrap your content in the post template, which adds the title, date, and comment section automatically.
+- **`title`** sets the heading displayed at the top of the post and in the browser tab.
+
+Add your content in Markdown on the line immediately after the closing `---`.
+
+## Creating a New Post
+
+<Steps>
+  <Step title="Navigate to /_posts/">
+    Open your repository on GitHub.com and click into the `/_posts/` directory.
+  </Step>
+  <Step title="Open the new-file dialog">
+    Click the **`+`** icon or the **`Add file`** button, then choose **`Create new file`** from the dropdown.
+  </Step>
+  <Step title="Name the file">
+    Type the filename in the name field at the top of the editor using the required format — for example, `2024-06-10-my-new-post.md`. GitHub will place the file in `/_posts/` automatically.
+  </Step>
+  <Step title="Add the front matter block">
+    Paste the following at the very top of the file, replacing the title with your own:
+
+    ```markdown
+    ---
+    layout: post
+    title: My New Post
+    ---
+    ```
+  </Step>
+  <Step title="Write your content">
+    Below the closing `---`, write your post in Markdown. See the [Markdown Guide](/writing/markdown-guide) for syntax reference.
+  </Step>
+  <Step title="Commit the file">
+    Scroll down to the **Commit changes** panel, optionally add a commit message, and click **Commit changes**. Your post is live on your blog within seconds.
+  </Step>
+</Steps>
+
+## Editing an Existing Post
+
+1. Navigate to `/_posts/` in your repository and click the post file you want to edit.
+2. Click the **pencil icon** (✏️) in the top-right corner of the file view to open the browser editor.
+3. Make your changes in the editor.
+4. Scroll down to the **Commit changes** panel and click **Commit changes** to save. The updated post appears on your blog within seconds.
+
+## Deleting a Post
+
+1. Navigate to `/_posts/` and click the post file you want to remove.
+2. Click the **trash icon** (🗑) in the top-right corner of the file view.
+3. Confirm the deletion in the **Commit changes** dialog and click **Commit changes**.
+
+The post disappears from your live blog immediately after GitHub Pages finishes rebuilding — typically within a few seconds.
+
+## Three Ways to Edit
+
+<Tabs>
+  <Tab title="GitHub.com">
+    The built-in browser editor at GitHub.com is the simplest option. Navigate to any file in your repository, click the pencil icon to edit, and commit your changes — no software required. This is the recommended approach for most Loopspell users.
+  </Tab>
+  <Tab title="Prose.io">
+    [Prose.io](http://prose.io) is a third-party editor built specifically for Jekyll sites hosted on GitHub. It provides a cleaner writing interface, a toolbar for Markdown formatting, drag-and-drop image uploads, and a dedicated drafts view. Authenticate with your GitHub account at prose.io to get started.
+  </Tab>
+  <Tab title="Local Clone">
+    For advanced users, clone your repository to your local machine with `git clone`, edit files in any text editor, and push changes back to GitHub. GitHub Pages rebuilds and publishes your site automatically after each push. See the [Local Development guide](#) for setup instructions.
+  </Tab>
+</Tabs>

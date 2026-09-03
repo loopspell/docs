@@ -1,0 +1,61 @@
+---
+title: "Enable Reader Comments with Disqus on Your Blog"
+sidebarTitle: "Disqus Comments"
+description: "Add Disqus commenting to every Loopspell blog post by setting your Disqus shortname in _config.yml — readers can comment immediately."
+---
+
+Loopspell integrates with Disqus to add a fully-featured comment thread to every post. When enabled, readers can log in with their Disqus, social, or guest accounts and leave comments directly on your posts.
+
+## Setting Up a Disqus Account
+
+<Steps>
+  <Step title="Go to Disqus">
+    Visit [disqus.com](https://disqus.com) and sign up for a new account or log in to an existing one.
+  </Step>
+  <Step title="Add your site">
+    Click **Get Started** and choose **I want to install Disqus on my site**.
+  </Step>
+  <Step title="Note your shortname">
+    Enter your site name during setup. Disqus automatically generates a **shortname** for your site (for example, `myblog-12345`). Copy this shortname — you'll need it in the next step. You can also find it later under **Settings → General** in your Disqus admin panel.
+  </Step>
+  <Step title="Select a plan">
+    Select the free **Basic** plan to complete setup.
+  </Step>
+</Steps>
+
+## Enabling Comments
+
+Open your `_config.yml` file and add your shortname to the `disqus` key:
+
+```yaml _config.yml
+disqus: your-disqus-shortname
+```
+
+Replace `your-disqus-shortname` with the shortname Disqus assigned to your site — **not** your Disqus login username. Save the file to trigger a rebuild.
+
+## How Comments Appear
+
+After the rebuild completes, a Disqus comment thread appears automatically below every post on your blog. Readers see a comment input box along with options to sign in with a Disqus account, a social account, or post as a guest. No changes to your post templates are needed.
+
+## Moderating Comments
+
+Manage all reader comments from the Disqus dashboard at [disqus.com/admin](https://disqus.com/admin). From there you can:
+
+- **Approve** comments held in the moderation queue
+- **Flag or delete** spam or inappropriate content
+- **Reply** to readers directly within the thread
+- Configure moderation rules and email notifications under **Settings → Moderation**
+
+## Disabling Comments
+
+To turn off comments across your entire blog, remove the value from the `disqus` key in `_config.yml` or leave it blank:
+
+```yaml _config.yml
+disqus:
+```
+
+Save the file. After the next rebuild, the comment threads disappear from all posts.
+
+<Warning>
+  Disqus displays third-party advertisements on sites using the free Basic plan. If you prefer an ad-free experience for your readers, upgrade to a paid Disqus plan from your account settings at disqus.com.
+</Warning>

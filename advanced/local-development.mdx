@@ -1,0 +1,76 @@
+---
+title: "Run Loopspell Locally for Faster Development"
+sidebarTitle: "Local Development"
+description: "Clone your Loopspell blog and run it locally with Jekyll for instant previews, theme editing, and offline writing. Requires Ruby and Bundler."
+---
+
+For users who want faster iteration, theme customization, or offline writing, running Loopspell locally gives you a live-reload preview server. Changes appear instantly in your browser without waiting for GitHub Pages to rebuild.
+
+## Prerequisites
+
+Before you begin, make sure you have the following installed:
+
+- **Ruby** (version 2.7 or later recommended)
+- **Bundler** — install it by running `gem install bundler`
+- **Git**
+- **A terminal** — macOS Terminal, Windows Git Bash, or a Linux shell
+
+## Setup
+
+<Steps>
+  <Step title="Install Dependencies">
+    Run the following command to install Jekyll and all the plugins GitHub Pages uses:
+
+    ```bash
+    gem install github-pages
+    ```
+
+    This mirrors the exact plugin set GitHub Pages uses in production, so your local environment matches the live site exactly.
+  </Step>
+
+  <Step title="Clone Your Repository">
+    Clone your Loopspell repository to your local machine:
+
+    ```bash
+    git clone https://github.com/yourusername/yourusername.github.io.git
+    ```
+  </Step>
+
+  <Step title="Start the Server">
+    Navigate into your repository folder and start the Jekyll development server:
+
+    ```bash
+    cd yourusername.github.io && jekyll serve
+    ```
+
+    Jekyll builds your site and begins watching for file changes automatically.
+  </Step>
+
+  <Step title="Open in Browser">
+    Visit `http://127.0.0.1:4000/` in your browser to see your blog running locally.
+  </Step>
+</Steps>
+
+## Making Changes
+
+Once `jekyll serve` is running, it watches your project for file changes and automatically regenerates the site. Save any `.md` or `.scss` file, then refresh your browser to see the result immediately — no manual rebuild step required.
+
+## Pushing Changes
+
+When you are happy with your local changes, commit them and push to GitHub:
+
+```bash
+git add .
+git commit -m "Update blog styles"
+git push origin master
+```
+
+GitHub Pages picks up the push and rebuilds your live site automatically. Your changes are usually visible within a few seconds.
+
+<Tip>
+  Run `jekyll serve --drafts` to preview posts stored in the `/_drafts/` folder locally before you publish them. Draft posts are never built on the live site until you move them to `/_posts/`.
+</Tip>
+
+<Note>
+  The `github-pages` gem keeps your local Jekyll version in sync with the version GitHub Pages uses. This prevents build failures caused by version mismatches between your local environment and the live site.
+</Note>

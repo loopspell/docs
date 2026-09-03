@@ -1,0 +1,83 @@
+{
+  "projectType": "saas",
+  "projectName": "Loopspell",
+  "projectDescription": "Loopspell lets you launch a fully responsive Jekyll blog on GitHub Pages in minutes — no command line, no dependencies, no setup required.",
+  "theme": "almond",
+  "primaryColor": "#4183C4",
+  "lightColor": "#d6e8f7",
+  "darkColor": "#1a3a5c",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "first-post"
+            ]
+          },
+          {
+            "group": "Customize Your Blog",
+            "pages": [
+              "customization/site-settings",
+              "customization/avatar-and-branding",
+              "customization/social-links"
+            ]
+          },
+          {
+            "group": "Writing & Publishing",
+            "pages": [
+              "writing/creating-posts",
+              "writing/markdown-guide",
+              "writing/drafts-and-scheduling"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/google-analytics",
+              "integrations/disqus-comments",
+              "integrations/rss-feed"
+            ]
+          },
+          {
+            "group": "Advanced",
+            "pages": [
+              "advanced/local-development",
+              "advanced/custom-domain",
+              "advanced/theming"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Fork-first setup — live blog in minutes with no terminal required",
+    "Fully responsive and mobile-optimized base theme",
+    "Free hosting via GitHub Pages",
+    "Markdown blogging with GitHub Flavored Markdown support",
+    "Syntax highlighting via Rouge",
+    "Disqus commenting integration",
+    "Google Analytics integration",
+    "SVG social icons in footer",
+    "RSS/Atom feed generation",
+    "Sass/SCSS styling support",
+    "Custom domain support",
+    "Browser-based editing on GitHub.com"
+  ],
+  "publicApiSurface": [
+    "_config.yml — site-wide configuration (name, description, avatar, URL, footer links, analytics, Disqus)",
+    "_posts/YYYY-MM-DD-title.md — blog post files with Jekyll front matter",
+    "Front matter fields: layout, title, date, categories, tags",
+    "permalink: /:title/ — URL structure setting",
+    "Google Analytics: google_analytics key in _config.yml",
+    "Disqus: disqus key in _config.yml",
+    "footer-links: github, twitter, email, linkedin, etc. in _config.yml",
+    "avatar: URL in _config.yml",
+    "baseurl: for Project Pages hosting"
+  ]
+}

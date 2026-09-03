@@ -1,0 +1,51 @@
+---
+title: "Add Social Media Links to Your Blog Footer"
+sidebarTitle: "Social Links"
+description: "Configure footer social icons for GitHub, Twitter, LinkedIn, and more in _config.yml. Icons appear automatically when you add your username."
+---
+
+Loopspell automatically renders SVG social icons in the footer of every page for any service you configure. Add your username or profile identifier for each platform you want to show — no HTML, no template edits, no code required. Leave a field blank and that icon stays hidden.
+
+## Supported Services
+
+The `footer-links` block in `_config.yml` supports the following keys. Set each value to the identifier described below.
+
+| Key | What to put as the value |
+|---|---|
+| `github` | Your GitHub username |
+| `twitter` | Your Twitter username (without the `@`) |
+| `email` | Your email address |
+| `linkedin` | Your LinkedIn username (the part after `/in/`) |
+| `facebook` | Your Facebook username or page name |
+| `instagram` | Your Instagram username |
+| `flickr` | Your Flickr username |
+| `pinterest` | Your Pinterest username |
+| `youtube` | Your channel or user path, e.g. `channel/UCxxxxxxx` or `user/yourname` |
+| `dribbble` | Your Dribbble username |
+| `stackoverflow` | Your profile path, e.g. `users/12345/your-name` |
+| `rss` | Any non-empty value (e.g. `true`) enables the RSS feed icon |
+| `googleplus` | The part of your profile URL that comes after `plus.google.com/` |
+
+## Configuring Footer Links
+
+Open `_config.yml` in the GitHub browser editor and fill in the values for the services you want to display under the `footer-links` key:
+
+```yaml _config.yml
+footer-links:
+  github: yourusername
+  twitter: yourhandle
+  email: you@yourdomain.com
+  linkedin: yourprofile
+```
+
+You can include as many or as few services as you like. Commit the file and GitHub Pages rebuilds your site — the icons appear in the footer immediately after the build completes.
+
+## How It Works
+
+Loopspell checks each `footer-links` key at build time. Any key with a non-empty value causes that service's icon to be rendered in the footer as a clickable link pointing to your profile. Any key that is left blank — or removed entirely from the file — is silently skipped, so no broken links or empty icon slots appear.
+
+For example, setting `github: loopspell` generates a footer link to `https://github.com/loopspell`. Setting `email: you@example.com` generates a `mailto:` link. Setting `rss: true` generates a link to your site's `/feed.xml` RSS feed.
+
+<Note>
+  All social icons are SVG vector graphics. Unlike raster images (PNG, JPEG), SVGs scale to any size without losing sharpness — your footer icons look crisp on every screen, from small mobile displays to large 4K monitors and high-density retina panels.
+</Note>

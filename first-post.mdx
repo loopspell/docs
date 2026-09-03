@@ -1,0 +1,82 @@
+---
+title: "Write and Publish Your First Blog Post"
+sidebarTitle: "First Post"
+description: "Create and publish your first Loopspell blog post using the GitHub.com editor. Learn Jekyll front matter, post naming, and Markdown basics."
+---
+
+Every Loopspell blog post lives in the `/_posts/` folder of your repository as a plain Markdown file. Jekyll reads that folder automatically, so there's no registration form, no publish button to hunt for, and no database to update. Create a properly named Markdown file with the right front matter, commit it, and your post is live — all without leaving your browser.
+
+<Tip>
+  For a more polished writing experience, use [Prose.io](http://prose.io) — a free browser-based Markdown editor designed specifically for Jekyll blogs. It offers a live preview pane, draft saving, and straightforward image uploads directly to your repository.
+</Tip>
+
+## Post File Naming
+
+Jekyll requires every post filename to follow a specific format:
+
+```
+YYYY-MM-DD-title.md
+```
+
+For example: `2024-01-15-my-first-post.md`
+
+The date prefix is not optional — Jekyll uses it to determine the publication date of the post, generate the correct permalink URL, and sort posts in chronological order on your blog's index page. If the filename doesn't match this pattern, Jekyll silently ignores the file and the post won't appear on your site.
+
+## Front Matter
+
+Every post must start with a front matter block: a section of metadata enclosed by triple-dashed lines (`---`). At minimum, your front matter needs a `layout` and a `title`:
+
+```markdown my-first-post.md
+---
+layout: post
+title: My First Post
+---
+
+Your content starts here. Write in Markdown!
+```
+
+- **`layout: post`** — Required. Tells Jekyll to use the post template to render this file. Without it, your post won't be styled correctly.
+- **`title`** — Sets the heading displayed at the top of your post and in the blog index. Make it descriptive and compelling.
+
+## Creating a Post on GitHub.com
+
+<Steps>
+  <Step title="Navigate to the /_posts/ folder">
+    Open your repository on GitHub.com and click on the `_posts` folder to open it.
+  </Step>
+
+  <Step title="Create a new file">
+    Click the **+** icon (or the **Add file** dropdown and select **Create new file**) to open the browser-based file editor.
+  </Step>
+
+  <Step title="Name your file">
+    Type your filename into the name field at the top of the editor. Use the `YYYY-MM-DD-title.md` format — for example, `2024-01-15-my-first-post.md`. Jekyll won't publish the post if the filename doesn't match this pattern.
+  </Step>
+
+  <Step title="Add the front matter block">
+    At the very top of the file, add your front matter. Start with `---`, add the `layout` and `title` fields, then close with another `---`:
+
+    ```markdown
+    ---
+    layout: post
+    title: My First Post
+    ---
+    ```
+  </Step>
+
+  <Step title="Write your post content">
+    Below the closing `---` of your front matter, write your post in Markdown. Use `##` for headings, `**bold**` for bold text, and `-` for bullet lists. The full syntax reference is linked at the bottom of this page.
+  </Step>
+
+  <Step title="Commit your post">
+    Scroll to the bottom of the page and click **Commit changes**. GitHub Pages rebuilds your site automatically, and your new post goes live within seconds.
+  </Step>
+</Steps>
+
+## Editing the Starter Post
+
+Your repository ships with a sample post at `/_posts/2014-3-3-Hello-World.md`. It contains a short welcome message and a pointer to `_config.yml`. Feel free to open that file in the browser editor, replace its content with your own, and commit the change — or delete it entirely once you've published your first real post. Either way, it won't affect your other posts or your site configuration.
+
+---
+
+For a full reference on Markdown syntax — headings, links, images, code blocks, and more — see the [Markdown Guide](/writing/markdown-guide).

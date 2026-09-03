@@ -1,0 +1,77 @@
+---
+title: "Use a Custom Domain with Your Loopspell Blog"
+sidebarTitle: "Custom Domain"
+description: "Point your own domain name at your Loopspell GitHub Pages site. Configure DNS records and update _config.yml for a professional blog URL."
+---
+
+By default your blog lives at `yourusername.github.io`. Pointing a custom domain like `yourblog.com` takes about 10 minutes and makes your blog look more professional.
+
+## Step 1: Create a CNAME File
+
+In your repository, create a file named `CNAME` (uppercase, no extension) in the root directory. The file should contain only your domain name — nothing else:
+
+```
+yourblog.com
+```
+
+If you prefer a subdomain instead of an apex domain, use:
+
+```
+blog.yourdomain.com
+```
+
+## Step 2: Configure DNS
+
+Log in to your domain registrar or DNS provider and add records based on whether you are using an apex domain or a subdomain.
+
+<Tabs>
+  <Tab title="Apex Domain">
+    For an apex domain (e.g., `yourblog.com`), add four **A records** pointing to the following GitHub Pages IP addresses:
+
+    ```
+    185.199.108.153
+    185.199.109.153
+    185.199.110.153
+    185.199.111.153
+    ```
+
+    Set the host/name field to `@` (which represents the root domain) for each A record.
+  </Tab>
+
+  <Tab title="Subdomain">
+    For a subdomain (e.g., `blog.yourdomain.com`), add a **CNAME record** with:
+
+    - **Host / Name:** `blog` (or whichever subdomain prefix you want)
+    - **Value / Points to:** `yourusername.github.io`
+  </Tab>
+</Tabs>
+
+## Step 3: Update \_config.yml
+
+Update the `url` field in your `_config.yml` to reflect your custom domain:
+
+```yaml _config.yml
+url: https://yourblog.com
+```
+
+Commit and push this change so GitHub Pages knows your canonical URL for sitemap generation and your RSS feed.
+
+## Step 4: Enable HTTPS
+
+Navigate to your GitHub repository → **Settings** → **Pages**, then check **Enforce HTTPS** once your domain is verified. GitHub automatically provisions a TLS certificate for your domain. This process can take up to 24 hours after DNS propagation completes.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="My domain isn't resolving">
+    DNS changes can take 24–48 hours to propagate globally. Use a tool like `dig` or an online DNS checker (e.g., [whatsmydns.net](https://www.whatsmydns.net)) to verify that your records have gone live before troubleshooting further.
+  </Accordion>
+
+  <Accordion title="GitHub says the domain is improperly configured">
+    Make sure your `CNAME` file contains only the bare domain name — no trailing slash, no `https://` prefix, and no extra whitespace or blank lines. For example, it should read `yourblog.com` and nothing else.
+  </Accordion>
+
+  <Accordion title="HTTPS isn't available">
+    Wait for your DNS records to fully propagate first. Once GitHub can verify that your domain points to its servers, it automatically provisions a TLS certificate via Let's Encrypt. If HTTPS is still unavailable after 48 hours, remove the CNAME file, commit, re-add it, and commit again to trigger a fresh certificate request.
+  </Accordion>
+</AccordionGroup>

@@ -1,47 +1,49 @@
 ---
-title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+title: "Get Started with Loopspell in Three Steps"
+sidebarTitle: "Quick Start"
+description: "Launch your Loopspell blog on GitHub Pages in minutes. Fork the repo, rename it, and you have a live site — no installs needed."
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
+You'll have a live, publicly accessible blog in under five minutes. There's no software to install, no accounts to create beyond a free GitHub account, and no commands to run. Everything happens right inside your browser.
 
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
-
-## Prerequisites
-
-Before you begin, you must have:
-
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
+<Warning>
+  You must name your repository exactly `yourusername.github.io` — replacing `yourusername` with your actual GitHub username — for GitHub Pages to serve it as your user site. Any other name will not work for this URL format.
+</Warning>
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
+  <Step title="Fork the Repository">
+    Go to the [Loopspell repository](https://github.com/loopspell/loopspell.github.io) on GitHub and click **Fork** in the top-right corner. On the fork screen, rename the repository to `yourusername.github.io`, where `yourusername` is your exact GitHub username, then click **Create fork**.
 
-    ```bash
-    npm install your-package
-    ```
+    <Note>
+      Your blog often goes live immediately after forking. GitHub recommends waiting up to 10 minutes for the very first build to complete if the site doesn't appear right away.
+    </Note>
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
 
-    ```bash
-    your-cli init
+  <Step title="Customize Your Site">
+    Open `_config.yml` in your new repository by clicking on the file name, then click the **pencil icon** to open the browser editor. Update at least the `name`, `description`, `avatar`, and `url` fields to make the blog your own:
+
+    ```yaml _config.yml
+    name: Your Blog Name
+    description: A short bio or tagline
+    avatar: https://yourdomain.com/your-avatar.jpg
+    url: https://yourusername.github.io
     ```
+
+    Click **Commit changes** when you're done. Any save to any file in the repository triggers a rebuild — your updated site will be live within seconds.
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
 
-    ```bash
-    your-cli start
-    ```
+  <Step title="Visit Your Blog">
+    Open your browser and navigate to `https://yourusername.github.io`. Your blog is live and already includes the Hello World starter post. Share the URL and start writing!
   </Step>
 </Steps>
 
-<Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
+## What's Next
 
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
-</Tip>
+<CardGroup cols={2}>
+  <Card title="Write Your First Post" icon="pen-nib" href="/first-post">
+    Create and publish your first real blog post using the GitHub.com editor.
+  </Card>
+  <Card title="Site Settings" icon="sliders" href="/customization/site-settings">
+    Explore every option in `_config.yml` — analytics, comments, social links, and more.
+  </Card>
+</CardGroup>

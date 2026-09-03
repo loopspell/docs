@@ -1,0 +1,103 @@
+---
+title: "Configure Your Loopspell Site Settings"
+sidebarTitle: "Site Settings"
+description: "Edit _config.yml to set your blog's name, description, URL, and permalink structure. Every change triggers an automatic GitHub Pages rebuild."
+---
+
+`_config.yml` is the single control panel for your entire Loopspell blog. It controls everything from your site's display name and description to its URL and permalink structure. Every time you save the file, GitHub Pages automatically rebuilds and redeploys your site — no terminal, no build scripts, no manual deploys required. You edit it directly in your browser on GitHub.com.
+
+## Opening \_config.yml
+
+1. Navigate to your Loopspell repository on [github.com](https://github.com).
+2. Click the `_config.yml` file in the repository file list.
+3. Click the **pencil icon** (Edit this file) in the top-right corner of the file viewer to open the browser editor.
+
+Make your changes, then scroll down and click **Commit changes** to save. GitHub Pages picks up the update automatically.
+
+## Core Settings
+
+Use these fields to define the fundamental identity of your blog.
+
+<ParamField body="name" type="string" required>
+  The display name shown in your blog's header. This text appears prominently at the top of every page and also populates the `<title>` tag used by browsers and search engines.
+
+  ```yaml _config.yml
+  name: My Awesome Blog
+  ```
+</ParamField>
+
+<ParamField body="description" type="string">
+  A short bio or tagline displayed directly under your site name in the header. Use it to tell visitors what your blog is about or add a personal touch.
+
+  ```yaml _config.yml
+  description: Thoughts on code, design, and the open web.
+  ```
+</ParamField>
+
+<ParamField body="avatar" type="string">
+  The full URL to your profile picture or avatar image. The avatar appears in the top-left corner of every page. Most people use their GitHub profile picture URL here.
+
+  ```yaml _config.yml
+  avatar: https://avatars.githubusercontent.com/u/YOUR_USER_ID
+  ```
+</ParamField>
+
+<ParamField body="url" type="string">
+  Your full site URL, including the protocol. This value is used by the sitemap generator and the RSS feed to build absolute links to your posts.
+
+  ```yaml _config.yml
+  url: https://yourusername.github.io
+  ```
+</ParamField>
+
+<ParamField body="baseurl" type="string">
+  The sub-path of your site. Leave this empty for a standard GitHub user site (`yourusername.github.io`). Set it to `/repo-name` if you're hosting from a project repository (`yourusername.github.io/repo-name`).
+
+  ```yaml _config.yml
+  # User site — leave empty
+  baseurl: ""
+
+  # Project site — set to your repository name
+  baseurl: "/my-blog"
+  ```
+</ParamField>
+
+## Permalink Structure
+
+Loopspell sets the following permalink format by default:
+
+```yaml _config.yml
+permalink: /:title/
+```
+
+The `:title` token maps to the slug in each post's filename. For example, a post file named `2024-06-01-my-first-post.md` gets the clean URL `/my-first-post/` — no dates, no file extensions, no clutter. This format is SEO-friendly and easy to share.
+
+You can change the permalink pattern at any time, but note that changing it on an existing blog will break any previously shared links, since all post URLs will change.
+
+## Saving Changes
+
+Any commit to `_config.yml` (or any file in the repository) triggers an automatic GitHub Pages rebuild. Your changes appear live on your blog within a few seconds in most cases. GitHub recommends allowing up to 10 minutes for the very first build after you create the site. You can monitor build progress under **Settings → Pages** in your repository.
+
+## Full Example
+
+Here is a complete, properly configured core section of `_config.yml`:
+
+```yaml _config.yml
+# Name of your site (displayed in the header)
+name: Jane Doe
+
+# Short bio or description (displayed in the header)
+description: Engineer by day, blogger by night.
+
+# URL of your avatar or profile pic
+avatar: https://avatars.githubusercontent.com/u/123456789
+
+# Your website URL — used for Sitemap.xml and your RSS feed
+url: https://janedoe.github.io
+
+# Leave empty for a user site; set to "/repo-name" for a project site
+baseurl: ""
+
+# Clean URL structure — /post-title/
+permalink: /:title/
+```

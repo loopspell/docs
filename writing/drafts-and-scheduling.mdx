@@ -1,0 +1,73 @@
+---
+title: "Schedule Posts and Manage Drafts in Loopspell"
+sidebarTitle: "Drafts & Scheduling"
+description: "Use Jekyll's draft system and date-based scheduling to control when posts appear on your Loopspell blog."
+---
+
+Loopspell, powered by Jekyll, gives you two built-in tools for controlling when your content goes public: **scheduled posts** let you set a future publish date directly in the filename, and **drafts** give you a private holding area for work-in-progress content that is never published until you are ready. Neither feature requires any configuration changes — they work out of the box.
+
+## Scheduling a Post
+
+Jekyll determines a post's publish date from the date prefix in its filename. Any post with a **future date** is silently excluded from the built site and will not appear on your blog until that date arrives.
+
+To schedule a post, simply name the file with a future date:
+
+```
+2099-12-25-my-future-post.md
+```
+
+GitHub Pages rebuilds your site on a regular schedule, so you do not need to trigger anything manually — the post goes live automatically on the specified date.
+
+<Note>
+  GitHub Pages build jobs run on a schedule, not precisely at midnight. A scheduled post may appear a few hours after midnight on the publish date rather than at exactly 00:00. If you need the post live at a specific time, publish it manually by backdating the filename to today's date when you are ready.
+</Note>
+
+## Using the \_drafts Folder
+
+Jekyll recognises a special `/_drafts/` directory at the root of your repository. Files placed in `/_drafts/` are **never included in the live site**, regardless of their content or modification date. Draft filenames do not require the date prefix — just use a descriptive slug:
+
+```
+/_drafts/my-work-in-progress.md
+```
+
+Draft files still need a front matter block, but the `title` is the only required field:
+
+```markdown
+---
+layout: post
+title: My Work in Progress
+---
+
+Content goes here...
+```
+
+### Creating the \_drafts folder on GitHub.com
+
+GitHub.com does not let you create an empty folder directly, but you can create the folder and your first draft file in one step:
+
+1. Navigate to the root of your repository.
+2. Click **`Add file`** → **`Create new file`**.
+3. In the filename field at the top of the editor, type `_drafts/my-draft.md`. GitHub automatically creates the `_drafts/` folder when it sees the `/` in the name.
+4. Add your front matter and content, then click **Commit changes**.
+
+Your draft is saved privately and will not appear on your live blog.
+
+## Moving a Draft to Published
+
+When your draft is ready to publish, rename it from the `_drafts/` folder to `_posts/` and add the date prefix:
+
+1. Navigate to `/_drafts/` in your repository and click the draft file.
+2. Click the **pencil icon** (✏️) to open the browser editor.
+3. Click into the **filename field** at the top of the editor (it shows the current path, e.g. `_drafts/my-draft.md`).
+4. Change the path to the full `_posts/` path with a date prefix — for example:
+   ```
+   _posts/2024-01-15-my-draft.md
+   ```
+   Typing the new path moves the file to the correct folder automatically.
+5. Scroll down and click **Commit changes**.
+
+The post is now live on your blog with the date you specified.
+
+<Tip>
+  For a richer draft-management experience, try [Prose.io](http://prose.io). Prose displays your `/_drafts/` files in a dedicated **Drafts** section separate from published posts, making it easy to see what is in progress, edit draft content, and promote a draft to published — all without touching filenames manually.
+</Tip>
