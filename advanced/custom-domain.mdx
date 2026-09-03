@@ -1,7 +1,7 @@
 ---
-title: "Use a Custom Domain with Your Loopspell Blog"
+title: "Connect a Custom Domain to Your Loopspell Blog Site"
 sidebarTitle: "Custom Domain"
-description: "Point your own domain name at your Loopspell GitHub Pages site. Configure DNS records and update _config.yml for a professional blog URL."
+description: "Connect your own domain name to your Loopspell GitHub Pages blog. Add DNS records and update _config.yml to serve your blog on a custom URL."
 ---
 
 By default your blog lives at `yourusername.github.io`. Pointing a custom domain like `yourblog.com` takes about 10 minutes and makes your blog look more professional.
@@ -19,6 +19,10 @@ If you prefer a subdomain instead of an apex domain, use:
 ```
 blog.yourdomain.com
 ```
+
+<Note>
+  The `CNAME` file must sit in the root of your repository, not inside any subfolder. It should contain exactly one line with the bare domain name — no `https://` prefix, no trailing slash, and no blank lines.
+</Note>
 
 ## Step 2: Configure DNS
 
@@ -50,7 +54,7 @@ Log in to your domain registrar or DNS provider and add records based on whether
 
 Update the `url` field in your `_config.yml` to reflect your custom domain:
 
-```yaml _config.yml
+```yaml
 url: https://yourblog.com
 ```
 

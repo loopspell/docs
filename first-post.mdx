@@ -1,5 +1,5 @@
 ---
-title: "Write and Publish Your First Blog Post"
+title: "Creating and Publishing Your First Loopspell Blog Post"
 sidebarTitle: "First Post"
 description: "Create and publish your first Loopspell blog post using the GitHub.com editor. Learn Jekyll front matter, post naming, and Markdown basics."
 ---
@@ -37,6 +37,24 @@ Your content starts here. Write in Markdown!
 
 - **`layout: post`** — Required. Tells Jekyll to use the post template to render this file. Without it, your post won't be styled correctly.
 - **`title`** — Sets the heading displayed at the top of your post and in the blog index. Make it descriptive and compelling.
+
+The following fields are optional but useful for organising and enriching your posts:
+
+```markdown my-first-post.md
+---
+layout: post
+title: My First Post
+date: 2024-01-15
+categories: [writing, personal]
+tags: [first-post, hello]
+---
+
+Your content starts here.
+```
+
+- **`date`** — Overrides the publication date derived from the filename. Use `YYYY-MM-DD` format. You only need this if you want the displayed date to differ from the filename date.
+- **`categories`** — A list of one or more category names. Jekyll uses these to group posts and can include them in the post URL when `permalink` is configured to do so.
+- **`tags`** — A list of one or more tags. Tags work like categories but are typically more granular. Both accept a YAML list (`[tag1, tag2]`) or a space-separated string.
 
 ## Creating a Post on GitHub.com
 

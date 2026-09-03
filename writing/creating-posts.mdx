@@ -1,7 +1,7 @@
 ---
-title: "Create and Manage Blog Posts in Loopspell"
+title: "How to Create and Publish Blog Posts with Loopspell"
 sidebarTitle: "Creating Posts"
-description: "Learn how to create, edit, and delete blog posts in Loopspell using GitHub.com's browser editor — no local tools required."
+description: "Learn to create and manage Loopspell blog posts on GitHub.com — covers filename format, required front matter fields like layout and title, and committing."
 ---
 
 All blog posts in Loopspell live in the `/_posts/` directory of your GitHub repository as Markdown files. Every file you add, edit, or delete in that folder is reflected on your live blog within seconds — no build commands, no deploys, no terminal required.
@@ -28,7 +28,7 @@ The date prefix tells Jekyll when the post was published, and the slug after the
 
 ## Required Front Matter
 
-Every post must start with a front matter block — a short YAML header fenced by triple dashes. At minimum, include the following:
+Every post must start with a front matter block — a short YAML header fenced by triple dashes. At minimum, include `layout` and `title`:
 
 ```markdown
 ---
@@ -39,6 +39,22 @@ title: Your Post Title Here
 
 - **`layout: post`** tells Jekyll to wrap your content in the post template, which adds the title, date, and comment section automatically.
 - **`title`** sets the heading displayed at the top of the post and in the browser tab.
+
+You can also include these optional fields to organise your content:
+
+```markdown
+---
+layout: post
+title: Your Post Title Here
+date: 2024-06-10
+categories: [writing, tutorials]
+tags: [jekyll, markdown, blogging]
+---
+```
+
+- **`date`** overrides the date in the filename if you need to specify a time as well (e.g. `2024-06-10 09:00:00`).
+- **`categories`** groups your post into one or more broad topics.
+- **`tags`** attaches more granular labels to the post.
 
 Add your content in Markdown on the line immediately after the closing `---`.
 
@@ -97,6 +113,6 @@ The post disappears from your live blog immediately after GitHub Pages finishes 
     [Prose.io](http://prose.io) is a third-party editor built specifically for Jekyll sites hosted on GitHub. It provides a cleaner writing interface, a toolbar for Markdown formatting, drag-and-drop image uploads, and a dedicated drafts view. Authenticate with your GitHub account at prose.io to get started.
   </Tab>
   <Tab title="Local Clone">
-    For advanced users, clone your repository to your local machine with `git clone`, edit files in any text editor, and push changes back to GitHub. GitHub Pages rebuilds and publishes your site automatically after each push. See the [Local Development guide](#) for setup instructions.
+    For advanced users, clone your repository to your local machine with `git clone`, edit files in any text editor, and push changes back to GitHub. GitHub Pages rebuilds and publishes your site automatically after each push.
   </Tab>
 </Tabs>

@@ -1,7 +1,7 @@
 ---
-title: "Customize Your Loopspell Blog Theme and Styles"
+title: "Customize Your Loopspell Blog with Sass Theme Variables"
 sidebarTitle: "Theming"
-description: "Edit Sass variables and CSS in your Loopspell repo to customize colors, fonts, and layout. Changes deploy automatically via GitHub Pages."
+description: "Edit Sass variables in your Loopspell repository to change colors, fonts, and layout. No local build tools needed for simple style changes."
 ---
 
 Loopspell's theme is built with Sass and compiles automatically on every GitHub Pages build. You can customize colors, fonts, spacing, and layout by editing Sass files directly in your repository — no local build tools needed for simple changes.
@@ -25,18 +25,34 @@ Start with `_variables.scss` for most customizations. Edit `style.scss` directly
 
 Open `_sass/_variables.scss` to find the color variables that control your entire site palette:
 
-```scss _variables.scss
-$blue: #4183C4;     // Link color
-$darkerGray: #222;  // Headings
-$darkGray: #333;    // Body text
-$gray: #666;        // Secondary text
-$lightGray: #eee;   // Borders, backgrounds
-$white: #fff;       // Page background
+```scss
+// Colors
+$blue: #4183C4;
+
+// Grays
+$black: #000;
+$darkerGray: #222;
+$darkGray: #333;
+$gray: #666;
+$lightGray: #eee;
+$white: #fff;
 ```
+
+These variables map to specific roles in the stylesheet:
+
+| Variable | Used for |
+|---|---|
+| `$blue` | Links and accent colors |
+| `$darkerGray` | Headings |
+| `$darkGray` | Body text |
+| `$gray` | Secondary text and blockquotes |
+| `$lightGray` | Borders and backgrounds |
+| `$white` | Page background |
+| `$black` | Text selection color |
 
 Change `$blue` to update all links and accent colors across the site in one edit. For example, to switch to a teal accent:
 
-```scss _variables.scss
+```scss
 $blue: #00897B;
 ```
 
@@ -46,7 +62,8 @@ Commit the change, and GitHub Pages rebuilds your site with the new color applie
 
 The font stack variables are also defined in `_sass/_variables.scss`:
 
-```scss _variables.scss
+```scss
+// Font stacks
 $helvetica: Helvetica, Arial, sans-serif;
 $helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $georgia: Georgia, serif;
@@ -54,13 +71,13 @@ $georgia: Georgia, serif;
 
 To use a Google Font, add the `@import` at the top of `style.scss` — before the Sass partials are imported — then override the relevant variable:
 
-```scss style.scss
+```scss
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
 ```
 
 Then in `_sass/_variables.scss`, update the font stack you want to replace:
 
-```scss _variables.scss
+```scss
 $helveticaNeue: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
 ```
 

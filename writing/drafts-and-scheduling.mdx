@@ -1,7 +1,7 @@
 ---
-title: "Schedule Posts and Manage Drafts in Loopspell"
+title: "Draft and Schedule Blog Posts on Your Loopspell Site"
 sidebarTitle: "Drafts & Scheduling"
-description: "Use Jekyll's draft system and date-based scheduling to control when posts appear on your Loopspell blog."
+description: "Keep work-in-progress posts private in the _drafts folder and use date-based filenames to schedule posts to go live automatically on your Loopspell blog."
 ---
 
 Loopspell, powered by Jekyll, gives you two built-in tools for controlling when your content goes public: **scheduled posts** let you set a future publish date directly in the filename, and **drafts** give you a private holding area for work-in-progress content that is never published until you are ready. Neither feature requires any configuration changes — they work out of the box.
@@ -30,7 +30,7 @@ Jekyll recognises a special `/_drafts/` directory at the root of your repository
 /_drafts/my-work-in-progress.md
 ```
 
-Draft files still need a front matter block, but the `title` is the only required field:
+Draft files still need a front matter block with at minimum `layout` and `title`:
 
 ```markdown
 ---
@@ -56,17 +56,26 @@ Your draft is saved privately and will not appear on your live blog.
 
 When your draft is ready to publish, rename it from the `_drafts/` folder to `_posts/` and add the date prefix:
 
-1. Navigate to `/_drafts/` in your repository and click the draft file.
-2. Click the **pencil icon** (✏️) to open the browser editor.
-3. Click into the **filename field** at the top of the editor (it shows the current path, e.g. `_drafts/my-draft.md`).
-4. Change the path to the full `_posts/` path with a date prefix — for example:
-   ```
-   _posts/2024-01-15-my-draft.md
-   ```
-   Typing the new path moves the file to the correct folder automatically.
-5. Scroll down and click **Commit changes**.
+<Steps>
+  <Step title="Open the draft file">
+    Navigate to `/_drafts/` in your repository and click the draft file you want to publish.
+  </Step>
+  <Step title="Open the editor">
+    Click the **pencil icon** (✏️) to open the browser editor.
+  </Step>
+  <Step title="Update the filename">
+    Click into the **filename field** at the top of the editor (it shows the current path, e.g. `_drafts/my-draft.md`) and change the path to a `_posts/` path with today's date prefix — for example:
 
-The post is now live on your blog with the date you specified.
+    ```
+    _posts/2024-01-15-my-draft.md
+    ```
+
+    Typing the new path moves the file to the correct folder automatically.
+  </Step>
+  <Step title="Commit the change">
+    Scroll down and click **Commit changes**. The post is now live on your blog with the date you specified.
+  </Step>
+</Steps>
 
 <Tip>
   For a richer draft-management experience, try [Prose.io](http://prose.io). Prose displays your `/_drafts/` files in a dedicated **Drafts** section separate from published posts, making it easy to see what is in progress, edit draft content, and promote a draft to published — all without touching filenames manually.
